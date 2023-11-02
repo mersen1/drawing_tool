@@ -2,11 +2,15 @@
 
 # rubocop:disable Naming/MethodParameterName, Metrics/MethodLength, Metrics/AbcSize
 module DrawingTool
-  module DrawCommands
-    class DrawLine
+  module Commands
+    class CreateLine
+      DEFAULT_PLOT_SYMBOL = '*'
+      private_constant :DEFAULT_PLOT_SYMBOL
+
       # Bresenham's line algorithm (https://en.wikipedia.org/wiki/Bresenham's_line_algorithm)
-      def initialize(canvas)
+      def initialize(canvas, plot_symbol: DEFAULT_PLOT_SYMBOL)
         @canvas = canvas
+        @plot_symbol = plot_symbol
       end
 
       def call(x0, y0, x1, y1)
@@ -17,10 +21,10 @@ module DrawingTool
 
       private
 
-      attr_reader :canvas
+      attr_reader :canvas, :plot_symbol
 
       def plot(x, y)
-        canvas[y][x] = '*'
+        canvas[y, x] = plot_symbol
       end
 
       def plot_line_low(x0, y0, x1, y1)

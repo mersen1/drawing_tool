@@ -19,10 +19,10 @@ RSpec.describe DrawingTool::DrawCommands::DrawLine do # rubocop:disable Metrics/
       expect(canvas).to eq(
         [
           ['*', nil, nil, nil, nil],
-          ['*', nil, nil, nil, nil],
-          [nil, '*', nil, nil, nil],
-          [nil, nil, '*', nil, nil],
-          [nil, nil, nil, '*', nil]
+          [nil, '*', '*', nil, nil],
+          [nil, nil, nil, '*', nil],
+          [nil, nil, nil, nil, '*'],
+          [nil, nil, nil, nil, nil]
         ]
       )
     end
@@ -32,11 +32,11 @@ RSpec.describe DrawingTool::DrawCommands::DrawLine do # rubocop:disable Metrics/
 
       expect(canvas).to eq(
         [
-          [nil, nil, nil, nil, '*'],
+          [nil, nil, nil, nil, nil],
           [nil, nil, nil, nil, '*'],
           [nil, nil, nil, '*', nil],
-          [nil, nil, '*', nil, nil],
-          [nil, '*', nil, nil, nil]
+          [nil, '*', '*', nil, nil],
+          ['*', nil, nil, nil, nil]
         ]
       )
     end
@@ -47,10 +47,10 @@ RSpec.describe DrawingTool::DrawCommands::DrawLine do # rubocop:disable Metrics/
       expect(canvas).to eq(
         [
           ['*', nil, nil, nil, nil],
-          ['*', nil, nil, nil, nil],
-          [nil, '*', nil, nil, nil],
-          [nil, nil, '*', nil, nil],
-          [nil, nil, nil, '*', nil]
+          [nil, '*', '*', nil, nil],
+          [nil, nil, nil, '*', nil],
+          [nil, nil, nil, nil, '*'],
+          [nil, nil, nil, nil, nil]
         ]
       )
     end
@@ -60,11 +60,11 @@ RSpec.describe DrawingTool::DrawCommands::DrawLine do # rubocop:disable Metrics/
 
       expect(canvas).to eq(
         [
-          [nil, nil, nil, nil, '*'],
+          [nil, nil, nil, nil, nil],
           [nil, nil, nil, nil, '*'],
           [nil, nil, nil, '*', nil],
-          [nil, nil, '*', nil, nil],
-          [nil, '*', nil, nil, nil]
+          [nil, '*', '*', nil, nil],
+          ['*', nil, nil, nil, nil]
         ]
       )
     end

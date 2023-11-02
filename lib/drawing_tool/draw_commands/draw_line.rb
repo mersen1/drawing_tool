@@ -20,12 +20,14 @@ module DrawingTool
         error = 0
         delta_err = delta_y + 1
         y = y0
-        dir_y = y1 > y0 ? 1 : -1
+        dir_y = y1 - y0
+        dir_y = 1 if dir_y.positive?
+        dir_y = -1 if dir_y.negative?
 
         (x0..x1).each do |x|
           plot(x, y)
           error += delta_err
-          if error >= delta_x + 1
+          if error >= delta_x
             y += dir_y
             error -= delta_x + 1
           end
@@ -37,7 +39,7 @@ module DrawingTool
       attr_reader :canvas, :x0, :y0, :x1, :y1
 
       def plot(x, y) # rubocop:disable Naming/MethodParameterName
-        canvas[x][y] = '*'
+        canvas[y][x] = '*'
       end
 
       def draw_from_bottom_to_top?

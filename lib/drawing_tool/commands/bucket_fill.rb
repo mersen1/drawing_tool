@@ -11,6 +11,7 @@ module DrawingTool
         @plot_symbol = plot_symbol
       end
 
+      # Flood Fill (https://en.wikipedia.org/wiki/Flood_fill)
       def call(x, y) # rubocop:disable Naming/MethodParameterName, Metrics/AbcSize
         return if x.negative? || x >= canvas.row_size || y.negative? || y >= canvas.column_size
 

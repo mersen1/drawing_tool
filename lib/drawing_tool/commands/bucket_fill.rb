@@ -15,7 +15,7 @@ module DrawingTool
       def call(x, y) # rubocop:disable Naming/MethodParameterName, Metrics/AbcSize
         return if x.negative? || x >= canvas.row_size || y.negative? || y >= canvas.column_size
 
-        return unless canvas[y, x].nil?
+        return if canvas[y, x]
 
         canvas[y, x] = plot_symbol
 

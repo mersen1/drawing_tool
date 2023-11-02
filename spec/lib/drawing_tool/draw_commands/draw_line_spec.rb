@@ -2,8 +2,9 @@
 
 require 'spec_helper'
 
-RSpec.describe DrawingTool::DrawCommands::DrawLine do # rubocop:disable Metrics/BlockLength
-  describe '#call' do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+RSpec.describe DrawingTool::DrawCommands::DrawLine do
+  describe '#call' do
     let(:canvas) do
       height = 5
       width = 5
@@ -56,7 +57,7 @@ RSpec.describe DrawingTool::DrawCommands::DrawLine do # rubocop:disable Metrics/
     end
 
     it 'draws line from the left bottom to the top right corner' do
-      described_class.new(canvas, 4, 1, 0, 4).call
+      described_class.new(canvas, 0, 4 ,4, 1).call
 
       expect(canvas).to eq(
         [
@@ -68,5 +69,34 @@ RSpec.describe DrawingTool::DrawCommands::DrawLine do # rubocop:disable Metrics/
         ]
       )
     end
+
+    it 'draws straight horizontal line' do
+      described_class.new(canvas, 0, 0, 4, 0).call
+
+      expect(canvas).to eq(
+        [
+          ['*', '*', '*', '*', '*'],
+          [nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil],
+          [nil, nil, nil, nil, nil]
+        ]
+      )
+    end
+
+    it 'draws straight vertical line' do
+      described_class.new(canvas, 0, 0, 0, 4).call
+
+      expect(canvas).to eq(
+        [
+          ['*', nil, nil, nil, nil],
+          ['*', nil, nil, nil, nil],
+          ['*', nil, nil, nil, nil],
+          ['*', nil, nil, nil, nil],
+          ['*', nil, nil, nil, nil]
+        ]
+      )
+    end
   end
 end
+# rubocop:enable Metrics/BlockLength

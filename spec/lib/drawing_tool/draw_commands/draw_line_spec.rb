@@ -15,7 +15,7 @@ RSpec.describe DrawingTool::DrawCommands::DrawLine do
     end
 
     it 'draws line from the top left to the right bottom corner' do
-      described_class.new(canvas, 0, 0, 4, 3).call
+      described_class.new(canvas).call(0, 0, 4, 3)
 
       expect(canvas).to eq(
         [
@@ -29,7 +29,7 @@ RSpec.describe DrawingTool::DrawCommands::DrawLine do
     end
 
     it 'draws line from the top right to the left bottom corner' do
-      described_class.new(canvas, 0, 4, 4, 1).call
+      described_class.new(canvas).call(0, 4, 4, 1)
 
       expect(canvas).to eq(
         [
@@ -43,7 +43,7 @@ RSpec.describe DrawingTool::DrawCommands::DrawLine do
     end
 
     it 'draws line from the right bottom corner to the top left' do
-      described_class.new(canvas, 4, 3, 0, 0).call
+      described_class.new(canvas).call(4, 3, 0, 0)
 
       expect(canvas).to eq(
         [
@@ -57,7 +57,7 @@ RSpec.describe DrawingTool::DrawCommands::DrawLine do
     end
 
     it 'draws line from the left bottom to the top right corner' do
-      described_class.new(canvas, 0, 4 ,4, 1).call
+      described_class.new(canvas).call(0, 4 ,4, 1)
 
       expect(canvas).to eq(
         [
@@ -71,7 +71,7 @@ RSpec.describe DrawingTool::DrawCommands::DrawLine do
     end
 
     it 'draws straight horizontal line' do
-      described_class.new(canvas, 0, 0, 4, 0).call
+      described_class.new(canvas).call(0, 0, 4, 0)
 
       expect(canvas).to eq(
         [
@@ -85,7 +85,7 @@ RSpec.describe DrawingTool::DrawCommands::DrawLine do
     end
 
     it 'draws straight vertical line' do
-      described_class.new(canvas, 0, 0, 0, 4).call
+      described_class.new(canvas).call(0, 0, 0, 4)
 
       expect(canvas).to eq(
         [

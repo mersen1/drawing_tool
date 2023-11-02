@@ -4,15 +4,12 @@
 module DrawingTool
   module DrawCommands
     class DrawLine
-      def initialize(canvas, x0, y0, x1, y1)
+      # Bresenham's line algorithm (https://en.wikipedia.org/wiki/Bresenham's_line_algorithm)
+      def initialize(canvas)
         @canvas = canvas
-        @x0 = x0
-        @y0 = y0
-        @x1 = x1
-        @y1 = y1
       end
 
-      def call
+      def call(x0, y0, x1, y1)
         return plot_line_low(x0, y0, x1, y1) if (y1 - y0).abs < (x1 - x0).abs
 
         plot_line_high(x0, y0, x1, y1)
@@ -20,7 +17,7 @@ module DrawingTool
 
       private
 
-      attr_reader :canvas, :x0, :y0, :x1, :y1
+      attr_reader :canvas
 
       def plot(x, y)
         canvas[y][x] = '*'
